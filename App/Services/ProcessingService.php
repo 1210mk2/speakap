@@ -21,26 +21,6 @@ class ProcessingService
     private int  $current_checkedout_count        = 0;
     private ?int $winner_max_books_possess_person = null;
 
-    public function getWinnerMaxCheckoutsPerson(): ?int
-    {
-        return $this->winner_max_checkouts_person;
-    }
-
-    public function getWinnerLongestCheckoutsBook(): ?string
-    {
-        return $this->winner_longest_checkouts_book;
-    }
-
-    public function getCurrentCheckedoutCount(): int
-    {
-        return $this->current_checkedout_count;
-    }
-
-    public function getWinnerMaxBooksPossessPerson(): ?int
-    {
-        return $this->winner_max_books_possess_person;
-    }
-
     public function __construct(BookRepo $_book_repo, PersonRepo $_person_repo, TransactionRepo $_transaction_repo)
     {
         $this->_book_repo        = $_book_repo;
