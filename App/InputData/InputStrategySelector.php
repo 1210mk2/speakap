@@ -9,7 +9,7 @@ use App\InputData\Strategies\Csv;
 use App\InputData\Strategies\Xml;
 use App\System\File\Files;
 
-class StrategySelector
+class InputStrategySelector
 {
 
     public static function detectStrategy(string $ext): ?InputFileInterface
@@ -17,10 +17,10 @@ class StrategySelector
         switch ($ext) {
 
             case 'csv':
-                return new Csv(new Files());
+                return new Csv();
 
             case 'xml':
-                return new Xml(new Files());
+                return new Xml();
         }
         return null;
     }

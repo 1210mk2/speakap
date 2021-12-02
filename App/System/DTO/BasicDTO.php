@@ -1,6 +1,6 @@
 <?php
 
-namespace App\InputData\DTO;
+namespace App\System\DTO;
 
 abstract class BasicDTO
 {

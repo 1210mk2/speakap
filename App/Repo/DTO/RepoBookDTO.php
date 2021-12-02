@@ -4,7 +4,7 @@
 namespace App\Repo\DTO;
 
 
-use App\InputData\DTO\BasicDTO;
+use App\System\DTO\BasicDTO;
 use App\InputData\DTO\TransactionDTO;
 
 class RepoBookDTO extends BasicDTO
