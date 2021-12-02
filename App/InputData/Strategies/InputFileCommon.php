@@ -8,16 +8,18 @@ use App\System\File\Files;
 
 abstract class InputFileCommon implements InputFileInterface
 {
-    protected Files $_files_instance;
+    private string $path;
 
-    public function __construct(Files $_files_instance)
+    protected Files $_file_handler;
+
+    public function setPath(string $path): void
     {
-        $this->_files_instance = $_files_instance;
+        $this->path = $path;
     }
 
-    public function open(string $path): void
+    public function open(): void
     {
-        $this->_files_instance->open($path);
+        $this->_file_handler = Files::open($this->path);
     }
 
     abstract public function getData(): array;

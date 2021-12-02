@@ -8,7 +8,9 @@ use App\InputData\ReaderSettings;
 
 interface InputFileInterface
 {
-    public function open(string $path);
+    public function setPath(string $path);
+
+    public function open();
 
     public function prepareDataForRead(ReaderSettings $settings);
 

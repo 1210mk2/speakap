@@ -4,6 +4,8 @@
 namespace App\InputData\DTO;
 
 
+use App\System\DTO\BasicDTO;
+
 class TransactionDTO extends BasicDTO
 {
     public \DateTime    $timestamp;
