@@ -5,9 +5,16 @@ namespace App\InputData\Strategies;
 
 
 use App\InputData\ReaderSettings;
+use App\System\File\Files;
 
 class Csv extends InputFileCommon
 {
+    protected Files $_file_handler;
+
+    public function open(): void
+    {
+        $this->_file_handler = Files::open($this->path);
+    }
 
     public function getData(): array
     {

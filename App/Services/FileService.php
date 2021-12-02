@@ -47,7 +47,6 @@ class FileService
 
             $info = Files::info($this->input_folder_path . $file_name);
             $ext  = $info['extension'];
-            if ($ext == 'xml') continue;
 
             $strategy = \App\InputData\InputStrategySelector::detectStrategy($ext);
             $strategy->setPath($this->input_folder_path . $file_name);
