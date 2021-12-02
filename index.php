@@ -30,7 +30,7 @@ try {
     $output_strategy->open();
     $output_strategy->saveData($output_data);
 
-} catch (\Exception $exception) {
+} catch (Throwable $exception) {
     echo "Errors\n";
     echo $exception->getMessage();
     die();
