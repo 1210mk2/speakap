@@ -62,7 +62,7 @@ class ProcessingService
             $checkouts_count_by_person[$person_key]  = 0;
             $active_checkouts_by_person[$person_key] = 0;
 
-            $transactions_by_person = $this->_transaction_repo->getAllByPerson($person_key);
+            $transactions_by_person = $this->_transaction_repo->getAllByPersonGenerator($person_key);
             foreach ($transactions_by_person as $transaction) {
 
                 $i_isbn_key  = $transaction->i_isbn_key;

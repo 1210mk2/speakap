@@ -74,6 +74,17 @@ class TransactionRepo
         return $result;
     }
 
+    public function getByPrimaryKeysGenerator(array $primary_keys): \Iterator
+    {
+        foreach ($primary_keys as $primary_key) {
+            $item = $this->getByPrimaryKey($primary_key);
+            if (!$item) {
+                continue;
+            }
+            yield $item;
+        }
+    }
+
     private function createPersonKeyIndex(RepoTransactionDTO $transaction_dto, int $primary_key): void
     {
         $this->person_keyed_index[$transaction_dto->i_person][] = $primary_key;
@@ -83,6 +94,13 @@ class TransactionRepo
     {
         $primary_keys = $this->person_keyed_index[$i_person] ?? [];
         return $this->getByPrimaryKeys($primary_keys);
+
+    }
+
+    public function getAllByPersonGenerator(int $i_person): \Iterator
+    {
+        $primary_keys = $this->person_keyed_index[$i_person] ?? [];
+        return $this->getByPrimaryKeysGenerator($primary_keys);
 
     }
 
@@ -97,5 +115,11 @@ class TransactionRepo
         return $this->getByPrimaryKeys($primary_keys);
     }
 
-    
+    public function getAllByBookGenerator(int $i_isbn_key): \Iterator
+    {
+        $primary_keys = $this->book_keyed_index[$i_isbn_key] ?? null;
+        return $this->getByPrimaryKeysGenerator($primary_keys);
+    }
+
+
 }
